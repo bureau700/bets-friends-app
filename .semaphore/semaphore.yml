@@ -21,9 +21,9 @@ blocks:
       jobs:
         - name: npm install
           commands:
-            - cache restore node-modules-$SEMAPHORE_GIT_PR_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_PR_BRANCH,node-modules-master
+            - cache restore
             - npm install
-            - cache store node-modules-$SEMAPHORE_GIT_PR_BRANCH-$(checksum package-lock.json) node_modules
+            - cache store
 
   - name: Tests
     task:
@@ -33,7 +33,7 @@ blocks:
           - sem-version node 12
           - node --version
           - npm --version
-          - cache restore node-modules-$SEMAPHORE_GIT_PR_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_PR_BRANCH,node-modules-master
+          - cache restore
       jobs:
         - name: Typescript check
           commands:
