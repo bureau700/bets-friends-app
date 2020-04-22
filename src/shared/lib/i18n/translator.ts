@@ -60,9 +60,9 @@ export class Translator {
     if (output.matchAll) {
       const matches = Array.from(
         output.matchAll(/\{\{[a-zA-Z][a-zA-Z0-9]*\}\}/g),
-        m => m[0],
+        (m) => m[0],
       );
-      matches.forEach(match => {
+      matches.forEach((match) => {
         this.onError(
           `Translation "${key}" needs parameter "${match.replace(
             /(\{{2})|(\}{2})/g,
