@@ -37,7 +37,7 @@ blocks:
       jobs:
         - name: Typescript check
           commands:
-            - npx tsc
+            - npx tsc --skipLibCheck
         - name: Lint check
           commands:
             - npm run lint
