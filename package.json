@@ -1,0 +1,125 @@
+{
+  "name": "BetsFriendsApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "clean-all": "watchman watch-del-all && rm -rf node_modules/ && npm cache clean --force && npm install",
+    "generate:icon": "react-native set-icon --path ./src/assets/icon.png  --background '#fff'",
+    "generate:splash": "react-native set-splash --path ./src/assets/splash.png  --background '#fff' --resize center",
+    "ios": "react-native run-ios",
+    "lint": "eslint \"./{src,__tests__}/**/*.{ts,tsx}\"",
+    "start": "react-native start",
+    "storybook": "(adb reverse tcp:7007 tcp:7007 || true) && start-storybook",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ],
+    "{src,__tests__}/**/*.ts?(x)": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/types/**/*",
+      "!src/storybook/**/*",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "preset": "react-native",
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "./__tests__/setup.ts"
+    ],
+    "testMatch": [
+      "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation|@react-native-community|react-native-jest-mocks|@sentry/react-native/.*))"
+    ]
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.9.0",
+    "@react-native-community/masked-view": "^0.1.7",
+    "@react-navigation/native": "~5.1.1",
+    "@react-navigation/stack": "~5.1.0",
+    "@storybook/react-native": "^5.3.18",
+    "ky": "^0.19.0",
+    "lodash.memoize": "^4.1.2",
+    "mobx": "^5.15.4",
+    "mobx-react-lite": "^1.5.2",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-device-info": "^5.5.3",
+    "react-native-gesture-handler": "^1.6.0",
+    "react-native-idle-timer": "^2.1.6",
+    "react-native-localize": "^1.4.0",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-safe-area-context": "^0.7.3",
+    "react-native-screens": "^2.5.0",
+    "react-native-splash-screen": "^3.2.0",
+    "reactotron-core-client": "^2.8.10",
+    "reactotron-react-native": "^4.0.3",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-flow-strip-types": "^7.8.3",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^1.0.0",
+    "@types/react-native": "^0.62.0",
+    "@types/react-test-renderer": "16.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3",
+    "@bam.tech/react-native-make": "^1.0.3",
+    "@storybook/addon-storyshots": "^5.3.14",
+    "@storybook/react-native-server": "^5.3.18",
+    "@types/jest": "^25.2.1",
+    "@types/lodash.memoize": "^4.1.6",
+    "@types/styled-components": "^5.0.1",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.0",
+    "sort-package-json": "^1.40.0"
+  }
+}
