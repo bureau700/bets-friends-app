@@ -1,0 +1,46 @@
+version: v1.0
+name: Bets Friends App
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+auto_cancel:
+  queued:
+    when: "true" # enable auto-cancel for branches, tags and pull-requests
+
+blocks:
+  - name: Install dependencies
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - npm --version
+      jobs:
+        - name: npm install
+          commands:
+            - cache restore node-modules-$SEMAPHORE_GIT_PR_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_PR_BRANCH,node-modules-master
+            - npm install
+            - cache store node-modules-$SEMAPHORE_GIT_PR_BRANCH-$(checksum package-lock.json) node_modules
+
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - npm --version
+          - cache restore node-modules-$SEMAPHORE_GIT_PR_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_PR_BRANCH,node-modules-master
+      jobs:
+        - name: Typescript check
+          commands:
+            - npx tsc
+        - name: Lint check
+          commands:
+            - npm run lint
+        - name: Unit tests
+          commands:
+            - npm run test
