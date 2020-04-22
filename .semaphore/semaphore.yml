@@ -1,0 +1,46 @@
+version: v1.0
+name: Bets Friends App
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+auto_cancel:
+  queued:
+    when: "true" # enable auto-cancel for branches, tags and pull-requests
+
+blocks:
+  - name: Install dependencies
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - npm --version
+      jobs:
+        - name: npm install
+          commands:
+            - cache restore
+            - npm install
+            - cache store
+
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - npm --version
+          - cache restore
+      jobs:
+        - name: Typescript check
+          commands:
+            - npx tsc --skipLibCheck
+        - name: Lint check
+          commands:
+            - npm run lint
+        - name: Unit tests
+          commands:
+            - npm run test
