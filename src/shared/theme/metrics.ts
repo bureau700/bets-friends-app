@@ -8,7 +8,7 @@ const metrics = {
   smallerMargin: 8,
   smallMargin: 10,
   littleMargin: 12,
-  regularMargin: 15,
+  regularMargin: 16,
   bigMargin: 18,
   largeMargin: 20,
   largerMargin: 24,
