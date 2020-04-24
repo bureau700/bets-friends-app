@@ -82,7 +82,7 @@
     "react-native-screens": "^2.5.0",
     "react-native-splash-screen": "^3.2.0",
     "reactotron-core-client": "^2.8.10",
-    "reactotron-react-native": "^4.0.3",
+    "reactotron-react-native": "^5.0.0",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
