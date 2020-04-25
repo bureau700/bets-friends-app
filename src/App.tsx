@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { autorun } from 'mobx';
 import IdleTimerManager from 'react-native-idle-timer';
-import AppNavigator from './shared/AppNavigator';
 import RootStore from './shared/store/root-store';
 import { rootStoreContext } from './shared/store';
 import Reactotron from './reactotron';
 import StorybookUIRoot from './storybook';
 import { useConfigureI18n } from './shared/lib/i18n/localization';
 import { getLogger } from './shared/lib/reactotron/logger';
+import Router from './shared/navigation/Router';
 
 const RootStoreProvider = rootStoreContext.Provider;
 
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <RootStoreProvider value={rootStore}>
-      <AppNavigator />
+      <Router isLogged={false} />
     </RootStoreProvider>
   );
 }
