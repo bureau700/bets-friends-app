@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { TextInputProps } from 'react-native';
-import styled, { useTheme } from 'styled-components/native';
+import styled from 'styled-components/native';
 import Outline from './utils/Outline';
 import XIcon, { XIconName } from './XIcon';
 import XTouchableIcon from './XTouchableIcon';
