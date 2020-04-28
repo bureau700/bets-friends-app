@@ -10,11 +10,7 @@
     "editor.formatOnSave": true
   },
   "eslint.packageManager": "npm",
-  "eslint.workingDirectories": [
-    "./*",
-    "./src/**/**",
-    "./tests/**/**"
-  ],
+  "eslint.workingDirectories": ["./*", "./src/**/**", "./tests/**/**"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

@@ -1,4 +1,2 @@
-import colors from './colors';
-import metrics from './metrics';
-
-export { colors, metrics };
+export { default as Metrics } from './metrics';
+export { default as Colors } from './colors';
