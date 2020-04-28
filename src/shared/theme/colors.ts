@@ -1,17 +1,19 @@
-import { darken } from 'polished';
-
 const baseColors = {
-  background: '#36383e',
-  text: '#fff',
-};
-
-const extendedColors = {
-  backgroundLighter1: darken(0.05, baseColors.background),
+  // background: '#36383e',
+  background: '#fff',
+  text: '#000',
+  // text: '#fff',
 };
 
 const colors = {
   ...baseColors,
-  ...extendedColors,
+
+  formComponent: {
+    background: '#f1f1f1',
+    color: '#1e1e1e',
+    border: '#8c8c8c',
+    disableBackground: '#cecece',
+  },
 };
 
 export default colors;

@@ -2,7 +2,7 @@ import { Platform, Dimensions, StatusBar } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-const metrics = {
+const metricsBase = {
   hairlineMargin: 2,
   tightMargin: 4,
   smallerMargin: 8,
@@ -71,4 +71,12 @@ const metrics = {
   },
 };
 
-export default metrics;
+export default {
+  ...metricsBase,
+  formComponent: {
+    borderRadius: 4,
+    height: 60,
+    paddingHorizontal: metricsBase.smallerMargin,
+    paddingVertical: metricsBase.tightMargin,
+  },
+};

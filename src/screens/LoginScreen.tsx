@@ -21,7 +21,13 @@ export default function LoginScreen() {
     <Page>
       <Text>Ceci est un test</Text>
       <XInput placeholder={tr('Login')} />
-      <XInput placeholder={tr('Password')} />
+      <XInput
+        placeholder={tr('Password')}
+        trailingIcon="eye"
+        onTrailingIconPress={() => {
+          console.log('YAYAYAYAYAY');
+        }}
+      />
     </Page>
   );
 }
