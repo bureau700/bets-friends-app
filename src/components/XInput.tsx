@@ -90,7 +90,7 @@ export default function XInput({
             if (onBlur) onBlur(e);
           }}
         />
-        {trailingIconComponent && trailingIconComponent}
+        {trailingIconComponent}
       </InputWrapper>
     </Outline>
   );

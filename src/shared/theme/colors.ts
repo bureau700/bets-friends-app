@@ -1,8 +1,6 @@
 const baseColors = {
-  // background: '#36383e',
   background: '#fff',
   text: '#000',
-  // text: '#fff',
 };
 
 const colors = {

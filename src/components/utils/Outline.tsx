@@ -26,15 +26,8 @@ export default function Outline({
   const borderWidth = useRef(new Animated.Value(0)).current;
 
   const runAnimation = useCallback(() => {
-    if (focused) {
-      return Animated.timing(borderWidth, {
-        toValue: 100,
-        duration: ANIMATION_DURATION,
-        useNativeDriver: false,
-      });
-    }
     return Animated.timing(borderWidth, {
-      toValue: 0,
+      toValue: focused ? 100 : 0,
       duration: animationDuration,
       useNativeDriver: false,
     });
