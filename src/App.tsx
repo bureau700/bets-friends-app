@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { autorun } from 'mobx';
 import IdleTimerManager from 'react-native-idle-timer';
+import { ThemeProvider } from 'styled-components/native';
 import AppNavigator from './shared/AppNavigator';
 import RootStore from './shared/store/root-store';
 import { rootStoreContext } from './shared/store';
@@ -9,6 +10,7 @@ import Reactotron from './reactotron';
 import StorybookUIRoot from './storybook';
 import { useConfigureI18n } from './shared/lib/i18n/localization';
 import { getLogger } from './shared/lib/reactotron/logger';
+import * as theme from './shared/theme';
 
 const RootStoreProvider = rootStoreContext.Provider;
 
@@ -46,7 +48,9 @@ function App() {
 
   return (
     <RootStoreProvider value={rootStore}>
-      <AppNavigator />
+      <ThemeProvider theme={theme}>
+        <AppNavigator />
+      </ThemeProvider>
     </RootStoreProvider>
   );
 }
